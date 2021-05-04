@@ -1,0 +1,11 @@
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+}
+div img {
+  height: 25px;
+  width: 25px;
+}
+/*# sourceMappingURL=flavors.css.map */

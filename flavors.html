@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flavors</title>
+    <link rel="stylesheet" href="css/final.css"/>
+    <script src="https://kit.fontawesome.com/238218039f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js">
+    </script>
+    <link rel="icon" href="images/ice-cream-solid.png">
+</head>
+<body>
+<header>
+<h1>Super Duper Ice Cream Shop</h1>
+    <h6 class="tagline">Where ice cream is super!</h6>
+<div class="dropdown">
+    <div class="dropbtn"><i class="fas fa-bars"></i></div>
+    <div class="dropdown-content">
+        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a href="about.html">About</a>
+        <a href="flavors.html">Flavors</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+</header>
+<h2>Flavors</h2>
+<div id="store">
+<div v-for="(item,index) in flavors" v-on:click="popUp(index)">
+    <img v-bind:src="item.img" alt="item">
+    <div>{{item.flavor}}</div>
+    <div v-if="item.selected">
+        <div v-bind:class="{hide:item.selected==false,popUp:item.selected==true}">
+            <div>
+                <div>
+            <img v-bind:src="item.img" alt="item">
+                </div>
+                <br>
+            {{item.flavor}}
+            <br>
+            {{item.cost}}
+            <br>
+        </div>
+        </div>
+        </div>
+
+</div>
+    <script>
+        new Vue({
+    el:"#store",
+    data:{
+    flavors: [
+    {
+    flavor: "Blue",
+    img: "images/flavorImages/icecream1.jpg",
+    cost: 2.99,
+        selected:false,
+    },
+    {
+    flavor: "Chocolate",
+    img: "images/flavorImages/icecream2.jpg",
+    cost: 1.99,
+        selected:false,
+    },
+    {
+    flavor: "Vanilla",
+    img: "images/flavorImages/icecream3.jpg",
+    cost: 1.99,
+        selected:false,
+    },
+    {
+    flavor: "The Trio",
+    img: "images/flavorImages/icecream4.jpg",
+    cost: 3.99,
+    selected:false,
+    }
+    ]
+
+    },
+            methods:{
+                popUp:function (x) {
+                    this.flavors[x].selected = !this.flavors[x].selected;}
+    }})
+    </script>
+</div>
+<footer>
+    <ul>
+        <li><button><i class="fab fa-twitter fa-2x"></i></button></li>
+        <li><button><i class="fab fa-instagram fa-2x"></i></button></li>
+        <li><button><i class="fab fa-facebook fa-2x"></i></button></li>
+    </ul>
+</footer>
+</body>
+</html>
